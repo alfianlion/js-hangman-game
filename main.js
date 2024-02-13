@@ -107,7 +107,8 @@ function getButtonValue(buttonGuess){
 function findValueinWord(letter, sWord){
 	//TODO: get the letter
 	// 		check if any alphabet in selectedWord match letter
-	// 		unhide the alphabet in the word and re-set in hideWord
+	// 		unhide the alphabet in the word and re-set in hiddenWord
+	// 		displayWord to player
 	for(index = 0; index < sWord.length; index++){
 		if (sWord[index] == letter){
 			console.log(letter)
