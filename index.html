@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>js-hangman-game</title>
+		<link href="./style.css" rel="stylesheet">
+	</head>
+	<body>
+		<main>
+			<h1>Fruit Hangman</h1>
+			<span id="word-answer">Welcome! Press 'Play' to Begin</span>
+			<br>
+			<br>
+			<button class='alphabet' id='a' onclick='getButtonValue("a")' value='a'>A</button>
+			<button class='alphabet' id='b' onclick='getButtonValue("b")' value='b'>B</button>
+			<button class='alphabet' id='c' onclick='getButtonValue("c")' value='c'>C</button>
+			<button class='alphabet' id='d' onclick='getButtonValue("d")' value='d'>D</button>
+			<button class='alphabet' id='e' onclick='getButtonValue("e")' value='e'>E</button>
+			<button class='alphabet' id='f' onclick='getButtonValue("f")' value='f'>F</button>
+			<button class='alphabet' id='g' onclick='getButtonValue("g")' value='g'>G</button>
+			<button class='alphabet' id='h' onclick='getButtonValue("h")' value='h'>H</button>
+			<button class='alphabet' id='i' onclick='getButtonValue("i")' value='i'>I</button>
+			<button class='alphabet' id='j' onclick='getButtonValue("j")' value='j'>J</button>
+			<button class='alphabet' id='k' onclick='getButtonValue("k")' value='k'>K</button>
+			<button class='alphabet' id='l' onclick='getButtonValue("l")' value='l'>L</button>
+			<button class='alphabet' id='m' onclick='getButtonValue("m")' value='m'>M</button>
+			<br>
+			<br>
+			<button class='alphabet' id='n' onclick='getButtonValue("n")' value='n'>N</button>
+			<button class='alphabet' id='o' onclick='getButtonValue("o")' value='o'>O</button>
+			<button class='alphabet' id='p' onclick='getButtonValue("p")' value='p'>P</button>
+			<button class='alphabet' id='q' onclick='getButtonValue("q")' value='q'>Q</button>
+			<button class='alphabet' id='r' onclick='getButtonValue("r")' value='r'>R</button>	
+			<button class='alphabet' id='s' onclick='getButtonValue("s")' value='s'>S</button>
+			<button class='alphabet' id='t' onclick='getButtonValue("t")' value='t'>T</button>
+			<button class='alphabet' id='u' onclick='getButtonValue("u")' value='u'>U</button>
+			<button class='alphabet' id='v' onclick='getButtonValue("v")' value='v'>V</button>
+			<button class='alphabet' id='w' onclick='getButtonValue("w")' value='w'>W</button>
+			<button class='alphabet' id='x' onclick='getButtonValue("x")' value='x'>X</button>
+			<button class='alphabet' id='y' onclick='getButtonValue("y")' value='y'>Y</button>
+			<button class='alphabet' id='z' onclick='getButtonValue("z")' value='z'>Z</button>
+			<br>
+			<br>
+			<span id='counter' style='display:none'>Guess Counter: 0</span>
+			<input id='userInput' type='text' placeholder='fish' style='display:none'> 
+			<button id='userGuess' type='button' onclick='userGuess()' style='display:none'>Submit</button>
+			<button id='play' type='button' onclick='startGame()'>Play</button>
+		</main>
+		<script src="main.js" defer></script>
+	</body>
+</html>
