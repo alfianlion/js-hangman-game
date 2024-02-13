@@ -25,6 +25,13 @@ function hideWord(w){
 	return hiddenWord
 }
 
+function revealLetter(index, letter){
+	// remove the * from index, add letter to the same index
+	hiddenWord = hiddenWord.slice(0,index) + hiddenWord.slice(index+1)
+	hiddenWord = hiddenWord.slice(0,index) + letter + hiddenWord.slice(index) 
+	return hiddenWord
+}
+
 function displayWord(w){
 	return document.getElementById('word-answer').innerHTML = w
 }
@@ -92,7 +99,21 @@ function getButtonValue(buttonGuess){
 	let buttonValue = button.value
 	button.disabled = true
 	incrementGuessCounter()
+	findValueinWord(buttonValue, selectedWord)
 	console.log(buttonValue)
 	return buttonValue 
 }
 
+function findValueinWord(letter, sWord){
+	//TODO: get the letter
+	// 		check if any alphabet in selectedWord match letter
+	// 		unhide the alphabet in the word and re-set in hideWord
+	for(index = 0; index < sWord.length; index++){
+		if (sWord[index] == letter){
+			console.log(letter)
+			revealLetter(index,letter)
+			displayWord(hiddenWord)
+		}
+	}
+	return console.log(sWord.indexOf(letter))	
+}
