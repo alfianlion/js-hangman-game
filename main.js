@@ -47,15 +47,11 @@ function initGame(){
 
 function startGame(){	
 	initGame()
-
 	toggleGameDisplay(true)
 	randomizedWord(wordList)
 	hideWord(selectedWord)
 	displayWord(hiddenWord)
 	document.getElementById('submit').style.display = "none"
-
-	console.log("Selected Word:",selectedWord)
-	console.log(wordList)
 }
 
 function toggleGameDisplay(state){
