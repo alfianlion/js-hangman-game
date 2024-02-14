@@ -102,7 +102,7 @@ function incrementGuessCounter(){
 function checkAnswer(){
 	let textField = document.getElementById('userInput')
 	let answer = textField.value
-	if (answer == selectedWord){
+	if (answer.toLowerCase() == selectedWord){
 		toggleGameDisplay(false)
 		document.getElementById('word-answer').innerHTML = "You Win! Click 'Play' to start again"
 	} else {
