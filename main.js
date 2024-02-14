@@ -1,4 +1,4 @@
-let wordList = ['Apple','Banana','Cherry','Durian','Guava','Jackfruit']
+let wordList = ['Apple','Banana','Cherry','Durian','Guava','Jackfruit', 'Orange', 'Tomato', 'Watermelon', 'Grapefruit','Chilli','Strawberry','Blueberry','Raspberry','Pineapple','Starfruit']
 let selectedWord = ''
 let hiddenWord = ''
 let guessCounter = 3
@@ -37,7 +37,7 @@ function displayWord(w){
 }
 
 function initGame(){
-	wordList = ['Apple','Banana','Cherry','Durian','Guava','Lime']
+	 wordList = ['Apple','Banana','Cherry','Durian','Guava','Jackfruit', 'Orange', 'Tomato', 'Watermelon', 'Grapefruit','Chilli','Strawberry','Blueberry','Raspberry','Pineapple','Starfruit']
 	selectedWord = ''
 	hiddenWord = ''
 	guessCounter = 3
@@ -52,6 +52,7 @@ function startGame(){
 	randomizedWord(wordList)
 	hideWord(selectedWord)
 	displayWord(hiddenWord)
+	document.getElementById('submit').style.display = "none"
 
 	console.log("Selected Word:",selectedWord)
 	console.log(wordList)
@@ -62,6 +63,8 @@ function toggleGameDisplay(state){
 	if (state == false){
 		document.getElementById('play').style.display = "block"
 		document.getElementById('counter').style.display = "none"
+		document.getElementById('submit').style.display = "none"
+		document.getElementById('userInput').style.display = "none"
 		document.getElementById('word-answer').innerHTML = "Welcome! Press 'Play' to Begin"
 		for (var index = 0; index < gameButton.length; index ++){
 			gameButton[index].disabled = true
@@ -69,6 +72,8 @@ function toggleGameDisplay(state){
 	} else {
 		document.getElementById('play').style.display = "none"
 		document.getElementById('counter').style.display = "block"
+		document.getElementById('submit').style.display = "block"
+		document.getElementById('userInput').value = ""
 		document.getElementById('counter').innerHTML = "Guess counter: " + guessCounter
 		for (var index = 0; index < gameButton.length; index ++){
 			gameButton[index].disabled = false 
@@ -79,19 +84,35 @@ function toggleGameDisplay(state){
 function incrementGuessCounter(){
 	let counterText = document.getElementById('counter')
 	let userText = document.getElementById('userInput')
-	let guessButton = document.getElementById('userGuess')
+	let guessButton = document.getElementById('submit')
+	let gameButton = document.getElementsByClassName('alphabet')
 
+	guessCounter -= 1
 	// increament the counter by one if user made a guess
-	if (guessCounter > 1){
-		guessCounter -= 1
+	if (guessCounter != 0){
 		counterText.innerHTML = "Guess counter: " + guessCounter
 	} else {
 		// Ask user for their word guess
 		counterText.innerHTML = "Guess the word: "
 		userText.style.display = 'block'
 		guessButton.style.display = 'block'
+		for (var index = 0; index < gameButton.length; index ++){
+			gameButton[index].disabled = true
+		}
 	}
 	return guessCounter
+}
+
+function checkAnswer(){
+	let textField = document.getElementById('userInput')
+	let answer = textField.value
+	if (answer == selectedWord){
+		toggleGameDisplay(false)
+		document.getElementById('word-answer').innerHTML = "You Win! Click 'Play' to start again"
+	} else {
+		toggleGameDisplay(false)
+		document.getElementById('word-answer').innerHTML = "You Lost! Click 'Play' to start again"
+	}
 }
 
 function getButtonValue(buttonGuess){
@@ -100,7 +121,6 @@ function getButtonValue(buttonGuess){
 	button.disabled = true
 	incrementGuessCounter()
 	findValueinWord(buttonValue, selectedWord)
-	console.log(buttonValue)
 	return buttonValue 
 }
 
@@ -111,10 +131,8 @@ function findValueinWord(letter, sWord){
 	// 		displayWord to player
 	for(index = 0; index < sWord.length; index++){
 		if (sWord[index] == letter){
-			console.log(letter)
 			revealLetter(index,letter)
 			displayWord(hiddenWord)
 		}
 	}
-	return console.log(sWord.indexOf(letter))	
 }
