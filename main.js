@@ -37,7 +37,7 @@ function displayWord(w){
 }
 
 function initGame(){
-	 wordList = ['Apple','Banana','Cherry','Durian','Guava','Jackfruit', 'Orange', 'Tomato', 'Watermelon', 'Grapefruit','Chilli','Strawberry','Blueberry','Raspberry','Pineapple','Starfruit']
+	wordList = ['Apple','Banana','Cherry','Durian','Guava','Jackfruit', 'Orange', 'Tomato', 'Watermelon', 'Grapefruit','Chilli','Strawberry','Blueberry','Raspberry','Pineapple','Starfruit']
 	selectedWord = ''
 	hiddenWord = ''
 	guessCounter = 3
